@@ -1,5 +1,6 @@
+from typing import List
 from fastapi import APIRouter, HTTPException, Query
-from ..database import appointments, served_appointments, service
+from src.server.database import appointments, served_appointments, service, Service, ServedAppointment, Appointment
 
 router = APIRouter()
 service_router = APIRouter()
@@ -7,17 +8,17 @@ appointments_router = APIRouter()
 served_appointments_router = APIRouter()
 
 
-@service_router.get("/service/get_services_list")
+@service_router.get("/service/get_services_list", response_model=List[Service])
 def get_services():
     pass
 
 
-@service_router.get("/service/get_service")
+@service_router.get("/service/get_service", response_model=Service)
 def get_service():
     pass
 
 
-@service_router.get("/service/get_service_by_title")
+@service_router.get("/service/get_service_by_title", response_model=Service)
 def get_service_by_title():
     pass
 
@@ -32,12 +33,12 @@ def edis_service():
     pass
 
 
-@appointments_router.get("/appointments/get_appointments")
+@appointments_router.get("/appointments/get_appointments", response_model=List[Appointment])
 def get_appointments():
     pass
 
 
-@appointments_router.get("/appointments/get_appointment")
+@appointments_router.get("/appointments/get_appointment", response_model=Appointment)
 def get_appointment():
     pass
 
