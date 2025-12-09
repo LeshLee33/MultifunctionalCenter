@@ -3,9 +3,9 @@ import pymongo as pm
 client = pm.MongoClient('mongodb://localhost:27017/')
 database = client.MultifunctionalCenter
 
-appointments = database.Appointments
-served_appointments = database.Appoinments
 service = database.Service
+appointments = database.Appointments
+served_appointments = database.ServedAppointments
 
 
 def check_database_connection():

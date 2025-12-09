@@ -1,20 +1,16 @@
 from typing import List
 from fastapi import APIRouter, HTTPException, Query
-from src.server.database import appointments, served_appointments, service, Service, ServedAppointment, Appointment
+
 
 router = APIRouter()
 service_router = APIRouter()
 appointments_router = APIRouter()
 served_appointments_router = APIRouter()
+from .endpoints import *
 
 
 @service_router.get("/service/get_services_list", response_model=List[Service])
 def get_services():
-    pass
-
-
-@service_router.get("/service/get_service", response_model=Service)
-def get_service():
     pass
 
 
@@ -29,7 +25,7 @@ def add_service():
 
 
 @service_router.patch("/service/edit_service")
-def edis_service():
+def edit_service():
     pass
 
 
@@ -59,7 +55,7 @@ def delete_appointment():
 
 
 @served_appointments_router.get("/served_appointments/get_appointments_history")
-def check_appointment_expiration():
+def get_appointments_history():
     pass
 
 
