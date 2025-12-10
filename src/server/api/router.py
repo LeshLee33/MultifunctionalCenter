@@ -1,5 +1,6 @@
 from typing import List
 from fastapi import APIRouter, HTTPException, Query
+from src.server.database import Service, Appointment, ServedAppointment
 
 
 router = APIRouter()

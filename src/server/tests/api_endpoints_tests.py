@@ -1,6 +1,7 @@
 from src.server.api import (endpoint_get_services, endpoint_add_service, endpoint_edit_service,
                             endpoint_get_appointments, endpoint_add_appointment, endpoint_edit_appointment,
-                            endpoint_delete_appointment, endpoint_get_appointments_history)
+                            endpoint_delete_appointment, endpoint_get_appointments_history,
+                            endpoint_appointments_expiration_controller)
 from src.server.utils import ENDPOINT_ALREADY_EXISTING_DATA, ENDPOINT_SUCCESS
 
 TEST_SERVICE_ADDING_DATA = dict(service_type="test_service_type",
@@ -85,3 +86,9 @@ class TestClassEndpoints:
         result = endpoint_get_appointments_history()
         print(result)
         assert len(result['content']) >= 1 and not isinstance(result['content'], str)
+
+
+    def test_endpoint_appointments_expiration_control(self):
+        result = endpoint_appointments_expiration_controller()
+        print(result)
+        assert result['code'] == ENDPOINT_SUCCESS
