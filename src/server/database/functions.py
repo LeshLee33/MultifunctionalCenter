@@ -20,7 +20,7 @@ def create(collection, data):
 
 def read(collection, query):
     try:
-        result = list(collection.find(query)) if query is not None else list(collection.find())
+        result = list(collection.find(query, dict(_id=0))) if query is not None else list(collection.find({}, dict(_id=0)))
         return dict(code=DB_SUCCESS, content=result)
     except Exception as e:
         return dict(code=DB_EXCEPTION, content=f"Ошибка чтения из коллекции: {e}")
