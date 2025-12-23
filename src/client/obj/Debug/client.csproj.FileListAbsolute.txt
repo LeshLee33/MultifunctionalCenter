@@ -1,0 +1,10 @@
+C:\Users\Lenovo\Desktop\Term7Programming\MultifunctionalCenter\src\client\bin\Debug\client.exe.config
+C:\Users\Lenovo\Desktop\Term7Programming\MultifunctionalCenter\src\client\bin\Debug\client.exe
+C:\Users\Lenovo\Desktop\Term7Programming\MultifunctionalCenter\src\client\bin\Debug\client.pdb
+C:\Users\Lenovo\Desktop\Term7Programming\MultifunctionalCenter\src\client\obj\Debug\client.csproj.AssemblyReference.cache
+C:\Users\Lenovo\Desktop\Term7Programming\MultifunctionalCenter\src\client\obj\Debug\client.MainForm.resources
+C:\Users\Lenovo\Desktop\Term7Programming\MultifunctionalCenter\src\client\obj\Debug\client.Properties.Resources.resources
+C:\Users\Lenovo\Desktop\Term7Programming\MultifunctionalCenter\src\client\obj\Debug\client.csproj.GenerateResource.cache
+C:\Users\Lenovo\Desktop\Term7Programming\MultifunctionalCenter\src\client\obj\Debug\client.csproj.CoreCompileInputs.cache
+C:\Users\Lenovo\Desktop\Term7Programming\MultifunctionalCenter\src\client\obj\Debug\client.exe
+C:\Users\Lenovo\Desktop\Term7Programming\MultifunctionalCenter\src\client\obj\Debug\client.pdb
