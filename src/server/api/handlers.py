@@ -6,31 +6,31 @@ from src.server.utils import (ENDPOINT_SUCCESS, ENDPOINT_EXCEPTION, ENDPOINT_ALR
                               DB_DATA_NOT_FOUND, DB_UPDATING_FAILURE, DB_DELETION_FAILURE, ENDPOINT_INCORRECT_DATE,
                               ENDPOINT_INCORRECT_TIME)
 
+DATETIME_FORMAT_STRING = "%d.%m.%Y %H:%M:%S"
+STATUS_CODES_MAPPING = {
+    DB_SUCCESS: ENDPOINT_SUCCESS,
+    DB_DATA_NOT_FOUND: ENDPOINT_DATA_NOT_FOUND,
+    DB_UPDATING_FAILURE: ENDPOINT_UPDATING_FAILURE,
+    DB_ALREADY_EXISTING_DATA: ENDPOINT_ALREADY_EXISTING_DATA,
+    DB_DELETION_FAILURE: ENDPOINT_DELETION_FAILURE,
+    DB_EXCEPTION: ENDPOINT_EXCEPTION
+}
+
 
 def _change_result_code(code: int) -> int:
-    mapping = {
-        DB_SUCCESS: ENDPOINT_SUCCESS,
-        DB_DATA_NOT_FOUND: ENDPOINT_DATA_NOT_FOUND,
-        DB_UPDATING_FAILURE: ENDPOINT_UPDATING_FAILURE,
-        DB_ALREADY_EXISTING_DATA: ENDPOINT_ALREADY_EXISTING_DATA,
-        DB_DELETION_FAILURE: ENDPOINT_DELETION_FAILURE,
-        DB_EXCEPTION: ENDPOINT_EXCEPTION
-    }
-    return mapping.get(code, -1)
+    return STATUS_CODES_MAPPING.get(code, -1)
 
 
 def _convert_to_datetime(date_str: str, time_str: str) -> datetime:
-    format_string = "%d.%m.%Y %H:%M:%S"
-    datetime_str = date_str + " " + time_str + ":00"
-    return datetime.strptime(datetime_str, format_string)
+    return datetime.strptime((date_str + " " + time_str + ":00"), DATETIME_FORMAT_STRING)
 
 
 def _compare_datetime(appointment: dict) -> bool:
-    current_datetime = datetime.now()
-    appointment_date = appointment['appointment_date']
-    appointment_time = appointment['appointment_daytime']
-    appointment_datetime = _convert_to_datetime(date_str=appointment_date, time_str=appointment_time)
-    return current_datetime >= appointment_datetime
+    appointment_datetime = _convert_to_datetime(
+        date_str=appointment['appointment_date'],
+        time_str=appointment['appointment_daytime']
+    )
+    return datetime.now() >= appointment_datetime
 
 
 def _move_appointment_to_served_list(appointment: dict) -> dict:
@@ -45,22 +45,22 @@ def _move_appointment_to_served_list(appointment: dict) -> dict:
         return dict(code=ENDPOINT_EXCEPTION, content=f"Ошибка перемещения записи: {e}")
 
 
-def _process_appointments_recursive(appointments_list: list[dict], errors: list):
+def _process_expired_appointments_recursive(appointments_list: list[dict], errors: list):
     if len(appointments_list) != 0:
         appointment = appointments_list[-1]
         result = _move_appointment_to_served_list(appointment=appointment)
         if result['code'] != ENDPOINT_SUCCESS:
             errors.append(result)
-        return _process_appointments_recursive(appointments_list=appointments_list[:-1], errors=errors)
+        return _process_expired_appointments_recursive(appointments_list=appointments_list[:-1], errors=errors)
     return errors
 
 
 def _check_date(date_str: str):
     try:
-        check_date = datetime.strptime(date_str, "%d.%m.%Y").date()
-        print(check_date)
+        appointment_date = datetime.strptime(date_str, "%d.%m.%Y").date()
+        print(appointment_date)
         today = date.today()
-        if check_date > today:
+        if appointment_date > today:
             return dict(check=True, content="Дата корректна")
         else:
             return dict(check=False, content="Дата записи не может быть меньше текущей")
@@ -70,10 +70,10 @@ def _check_date(date_str: str):
 
 def _check_time(time_str: str):
     try:
-        check_time = datetime.strptime(time_str, "%H:%M")
-        if check_time.hour > 21 or check_time.hour < 7:
+        appointment_time = datetime.strptime(time_str, "%H:%M")
+        if appointment_time.hour > 21 or appointment_time.hour < 7:
             return dict(check=False, content="Время некорректно, неправильно указаны часы")
-        if check_time.minute > 59 or check_time.minute < 0:
+        if appointment_time.minute > 59 or appointment_time.minute < 0:
             return dict(check=False, content="Время некорректно, неправильно указаны минуты")
         return dict(check=True, content="Время корректно")
     except Exception as e:
@@ -87,7 +87,7 @@ def _check_service_existence(service_title):
     return True
 
 
-def endpoint_get_services(query: dict | None) -> dict:
+def handler_get_services(query: dict | None) -> dict:
     try:
         result = read(collection=service, query=query)
         return dict(code=_change_result_code(result['code']), content=result['content'])
@@ -95,7 +95,7 @@ def endpoint_get_services(query: dict | None) -> dict:
         return dict(code=ENDPOINT_EXCEPTION, content=f"Ошибка получения сервисов: {e}")
 
 
-def endpoint_add_service(data: dict) -> dict:
+def handler_add_service(data: dict) -> dict:
     try:
         result = create(collection=service, data=data)
         return dict(code=_change_result_code(result['code']), content=result['content'])
@@ -103,7 +103,7 @@ def endpoint_add_service(data: dict) -> dict:
         return dict(code=ENDPOINT_EXCEPTION, content=f"Ошибка добавления сервиса: {e}")
 
 
-def endpoint_edit_service(query: dict, new_data: dict) -> dict:
+def handler_edit_service(query: dict, new_data: dict) -> dict:
     try:
         result = update(collection=service, query=query, new_data=new_data)
         return dict(code=_change_result_code(result['code']), content=result['content'])
@@ -111,7 +111,7 @@ def endpoint_edit_service(query: dict, new_data: dict) -> dict:
         return dict(code=ENDPOINT_EXCEPTION, content=f"Ошибка обновления сервиса: {e}")
 
 
-def endpoint_get_appointments(query: dict | None) -> dict:
+def handler_get_appointments(query: dict | None) -> dict:
     try:
         result = read(collection=appointments, query=query)
         return dict(code=_change_result_code(result['code']), content=result['content'])
@@ -119,7 +119,7 @@ def endpoint_get_appointments(query: dict | None) -> dict:
         return dict(code=ENDPOINT_EXCEPTION, content=f"Ошибка получения записей: {e}")
 
 
-def endpoint_add_appointment(data: dict) -> dict:
+def handler_add_appointment(data: dict) -> dict:
     try:
         if not _check_service_existence(data['appointment_service_title']):
             return dict(code=ENDPOINT_DATA_NOT_FOUND, content="Услуга с таким названием не найдена")
@@ -134,13 +134,13 @@ def endpoint_add_appointment(data: dict) -> dict:
         return dict(code=ENDPOINT_EXCEPTION, content=f"Ошибка добавления записи: {e}")
 
 
-def endpoint_edit_appointment(query: dict, new_data: dict) -> dict:
+def handler_edit_appointment(query: dict, new_data: dict) -> dict:
     try:
-        if not _check_service_existence(new_data['appointment_service_title']):
+        if not _check_service_existence(query['appointment_service_title']):
             return dict(code=ENDPOINT_DATA_NOT_FOUND, content="Услуга с таким названием не найдена")
-        if not _check_date(new_data['appointment_date'])['check']:
+        if not _check_date(new_data['$set']['appointment_date'])['check']:
             return dict(code=ENDPOINT_INCORRECT_DATE, content="Введена некорректная дата")
-        if not _check_time(new_data['appointment_daytime'])['check']:
+        if not _check_time(new_data['$set']['appointment_daytime'])['check']:
             return dict(code=ENDPOINT_INCORRECT_TIME, content="Введено некорректное время")
 
         result = update(collection=appointments, query=query, new_data=new_data)
@@ -149,7 +149,7 @@ def endpoint_edit_appointment(query: dict, new_data: dict) -> dict:
         return dict(code=ENDPOINT_EXCEPTION, content=f"Ошибка изменения записи: {e}")
 
 
-def endpoint_delete_appointment(query: dict) -> dict:
+def handler_delete_appointment(query: dict) -> dict:
     try:
         result = delete(collection=appointments, query=query)
         return dict(code=_change_result_code(result['code']), content=result['content'])
@@ -157,19 +157,19 @@ def endpoint_delete_appointment(query: dict) -> dict:
         return dict(code=ENDPOINT_EXCEPTION, content=f"Ошибка удаления записи: {e}")
 
 
-def endpoint_get_appointments_history():
+def handler_get_appointments_history(query: dict | None):
     try:
-        result = read(collection=served_appointments, query=None)
+        result = read(collection=served_appointments, query=query)
         return dict(code=_change_result_code(result['code']), content=result['content'])
     except Exception as e:
         return dict(code=ENDPOINT_EXCEPTION, content=f"Ошибка получения истории записей: {e}")
 
 
-def endpoint_appointments_expiration_controller():
+def handler_appointments_expiration_controller():
     try:
         current_data = read(collection=appointments, query=None)
         filtered_data = list(filter(_compare_datetime, current_data['content']))
-        errors: list = _process_appointments_recursive(appointments_list=filtered_data, errors=[])
+        errors: list = _process_expired_appointments_recursive(appointments_list=filtered_data, errors=[])
         if len(errors) != 0:
             return dict(code=ENDPOINT_MOVE_TO_HISTORY_FAILURE, content=errors)
         return dict(code=ENDPOINT_SUCCESS, content="Успешное перемещение просроченных записей")

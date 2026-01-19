@@ -1,4 +1,4 @@
-from src.server.database import create, read, update, delete, service
+from src.server.database import create, read, update, delete, service, appointments
 from src.server.utils import DB_SUCCESS
 
 
@@ -20,7 +20,8 @@ class TestClassDBFunctions:
 
     def test_all_documents_reading(self):
         query = None
-        result = read(collection=service, query=query)
+        result = read(collection=appointments, query=query)
+        print(result)
         assert len(result['content']) > 1
 
 

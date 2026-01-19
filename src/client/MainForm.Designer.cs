@@ -1,6 +1,6 @@
 ﻿namespace client
 {
-    partial class MainForm
+    partial class MainForm : System.Windows.Forms.Form
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -31,50 +31,53 @@
             this.components = new System.ComponentModel.Container();
             this.MainFormTabControl = new System.Windows.Forms.TabControl();
             this.ServicesPage = new System.Windows.Forms.TabPage();
+            this.RefreshServicesButton = new System.Windows.Forms.Button();
             this.ServicePropertiesPanel = new System.Windows.Forms.Panel();
-            this.DocumentsListLabel = new System.Windows.Forms.Label();
+            this.DocumentsListLabel = new System.Windows.Forms.TextBox();
             this.ServiceTimeDurationLabel = new System.Windows.Forms.Label();
             this.GovernmentStructureLabel = new System.Windows.Forms.Label();
             this.ServiceTitleLabel = new System.Windows.Forms.Label();
             this.ServiceTypeLabel = new System.Windows.Forms.Label();
-            this.ServiceTimeDurationLabelLeft = new System.Windows.Forms.Label();
-            this.GovernmentStructureLabelLeft = new System.Windows.Forms.Label();
-            this.DocumentsListLabelLeft = new System.Windows.Forms.Label();
-            this.ServiceTitleLabelLeft = new System.Windows.Forms.Label();
-            this.ServiceTypeLabelLeft = new System.Windows.Forms.Label();
+            this.ServiceTimeDurationLiner = new System.Windows.Forms.Label();
+            this.GovernmentStructureLiner = new System.Windows.Forms.Label();
+            this.DocumentsListLiner = new System.Windows.Forms.Label();
+            this.ServiceTitleLiner = new System.Windows.Forms.Label();
+            this.ServiceTypeLiner = new System.Windows.Forms.Label();
             this.EditServiceButton = new System.Windows.Forms.Button();
             this.CreateAppointmentButton = new System.Windows.Forms.Button();
             this.SearchServicesTextBox = new System.Windows.Forms.TextBox();
             this.AddServiceButton = new System.Windows.Forms.Button();
             this.SearchServicesPanel = new System.Windows.Forms.Panel();
             this.AppointmentsPage = new System.Windows.Forms.TabPage();
+            this.RefreshAppointmentsButton = new System.Windows.Forms.Button();
             this.AppointmentPropertiesPanel = new System.Windows.Forms.Panel();
+            this.AppointmentDaytimeLabel = new System.Windows.Forms.Label();
+            this.AppointmentDaytimeLiner = new System.Windows.Forms.Label();
+            this.AppointmentDateLabel = new System.Windows.Forms.Label();
+            this.AppointmentNationalityLabel = new System.Windows.Forms.Label();
+            this.AppointmentClientNationalityLiner = new System.Windows.Forms.Label();
+            this.AppointmentDateLiner = new System.Windows.Forms.Label();
+            this.AppointmentClientPatronymicLabel = new System.Windows.Forms.Label();
+            this.AppointmentClientPatronymicLiner = new System.Windows.Forms.Label();
             this.AppointmentClientNameLabel = new System.Windows.Forms.Label();
             this.AppointmentClientSurnameLabel = new System.Windows.Forms.Label();
             this.PassportNumberLabel = new System.Windows.Forms.Label();
             this.PassportSeriesLabel = new System.Windows.Forms.Label();
             this.AppointmentServiceTitleLabel = new System.Windows.Forms.Label();
-            this.AppointmentClientSurnameLabelLeft = new System.Windows.Forms.Label();
-            this.PassportNumberLabelLeft = new System.Windows.Forms.Label();
-            this.AppointmentClientNameLabelLeft = new System.Windows.Forms.Label();
-            this.PassportSeriesLabelLeft = new System.Windows.Forms.Label();
-            this.AppointmentServiceTitleLabelLeft = new System.Windows.Forms.Label();
+            this.AppointmentClientSurnameLiner = new System.Windows.Forms.Label();
+            this.PassportNumberLiner = new System.Windows.Forms.Label();
+            this.AppointmentClientNameLiner = new System.Windows.Forms.Label();
+            this.PassportSeriesLiner = new System.Windows.Forms.Label();
+            this.AppointmentServiceTitleLiner = new System.Windows.Forms.Label();
             this.EditAppointmentButton = new System.Windows.Forms.Button();
             this.DeleteAppointmentButton = new System.Windows.Forms.Button();
             this.SearchAppointmentsTextBox = new System.Windows.Forms.TextBox();
             this.SearchAppointmentsPanel = new System.Windows.Forms.Panel();
             this.ServedAppointmentsPage = new System.Windows.Forms.TabPage();
+            this.RefreshAppointmentsHistoryButton = new System.Windows.Forms.Button();
             this.SearchAppointmentsHistoryPanel = new System.Windows.Forms.Panel();
             this.SearchAppointmentsHistoryTextBox = new System.Windows.Forms.TextBox();
             this.UpdateAppointmentsHistoryTimer = new System.Windows.Forms.Timer(this.components);
-            this.AppointmentClientPatronymicLabel = new System.Windows.Forms.Label();
-            this.AppointmentClientPatronymicLabelLeft = new System.Windows.Forms.Label();
-            this.AppointmentDaytimeLabel = new System.Windows.Forms.Label();
-            this.AppointmentDaytimeLabelLeft = new System.Windows.Forms.Label();
-            this.AppointmentDateLabel = new System.Windows.Forms.Label();
-            this.AppointmentNationalityLabel = new System.Windows.Forms.Label();
-            this.AppointmentNationalityLabelLeft = new System.Windows.Forms.Label();
-            this.AppointmentDateLabelLeft = new System.Windows.Forms.Label();
             this.MainFormTabControl.SuspendLayout();
             this.ServicesPage.SuspendLayout();
             this.ServicePropertiesPanel.SuspendLayout();
@@ -91,11 +94,12 @@
             this.MainFormTabControl.Location = new System.Drawing.Point(13, 13);
             this.MainFormTabControl.Name = "MainFormTabControl";
             this.MainFormTabControl.SelectedIndex = 0;
-            this.MainFormTabControl.Size = new System.Drawing.Size(859, 536);
+            this.MainFormTabControl.Size = new System.Drawing.Size(1159, 536);
             this.MainFormTabControl.TabIndex = 0;
             // 
             // ServicesPage
             // 
+            this.ServicesPage.Controls.Add(this.RefreshServicesButton);
             this.ServicesPage.Controls.Add(this.ServicePropertiesPanel);
             this.ServicesPage.Controls.Add(this.SearchServicesTextBox);
             this.ServicesPage.Controls.Add(this.AddServiceButton);
@@ -103,10 +107,22 @@
             this.ServicesPage.Location = new System.Drawing.Point(4, 22);
             this.ServicesPage.Name = "ServicesPage";
             this.ServicesPage.Padding = new System.Windows.Forms.Padding(3);
-            this.ServicesPage.Size = new System.Drawing.Size(851, 510);
+            this.ServicesPage.Size = new System.Drawing.Size(1151, 510);
             this.ServicesPage.TabIndex = 0;
             this.ServicesPage.Text = "Услуги";
             this.ServicesPage.UseVisualStyleBackColor = true;
+            // 
+            // RefreshServicesButton
+            // 
+            this.RefreshServicesButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.RefreshServicesButton.Location = new System.Drawing.Point(280, 6);
+            this.RefreshServicesButton.Name = "RefreshServicesButton";
+            this.RefreshServicesButton.Size = new System.Drawing.Size(66, 23);
+            this.RefreshServicesButton.TabIndex = 4;
+            this.RefreshServicesButton.Text = "Обновить";
+            this.RefreshServicesButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.RefreshServicesButton.UseVisualStyleBackColor = true;
+            this.RefreshServicesButton.Click += new System.EventHandler(this.RefreshServices);
             // 
             // ServicePropertiesPanel
             // 
@@ -117,31 +133,32 @@
             this.ServicePropertiesPanel.Controls.Add(this.GovernmentStructureLabel);
             this.ServicePropertiesPanel.Controls.Add(this.ServiceTitleLabel);
             this.ServicePropertiesPanel.Controls.Add(this.ServiceTypeLabel);
-            this.ServicePropertiesPanel.Controls.Add(this.ServiceTimeDurationLabelLeft);
-            this.ServicePropertiesPanel.Controls.Add(this.GovernmentStructureLabelLeft);
-            this.ServicePropertiesPanel.Controls.Add(this.DocumentsListLabelLeft);
-            this.ServicePropertiesPanel.Controls.Add(this.ServiceTitleLabelLeft);
-            this.ServicePropertiesPanel.Controls.Add(this.ServiceTypeLabelLeft);
+            this.ServicePropertiesPanel.Controls.Add(this.ServiceTimeDurationLiner);
+            this.ServicePropertiesPanel.Controls.Add(this.GovernmentStructureLiner);
+            this.ServicePropertiesPanel.Controls.Add(this.DocumentsListLiner);
+            this.ServicePropertiesPanel.Controls.Add(this.ServiceTitleLiner);
+            this.ServicePropertiesPanel.Controls.Add(this.ServiceTypeLiner);
             this.ServicePropertiesPanel.Controls.Add(this.EditServiceButton);
             this.ServicePropertiesPanel.Controls.Add(this.CreateAppointmentButton);
-            this.ServicePropertiesPanel.Location = new System.Drawing.Point(241, 7);
+            this.ServicePropertiesPanel.Location = new System.Drawing.Point(502, 7);
             this.ServicePropertiesPanel.Name = "ServicePropertiesPanel";
-            this.ServicePropertiesPanel.Size = new System.Drawing.Size(604, 497);
+            this.ServicePropertiesPanel.Size = new System.Drawing.Size(643, 497);
             this.ServicePropertiesPanel.TabIndex = 3;
             // 
             // DocumentsListLabel
             // 
-            this.DocumentsListLabel.AutoSize = true;
-            this.DocumentsListLabel.Location = new System.Drawing.Point(185, 117);
+            this.DocumentsListLabel.Location = new System.Drawing.Point(185, 137);
+            this.DocumentsListLabel.MinimumSize = new System.Drawing.Size(300, 100);
+            this.DocumentsListLabel.Multiline = true;
             this.DocumentsListLabel.Name = "DocumentsListLabel";
-            this.DocumentsListLabel.Size = new System.Drawing.Size(16, 13);
-            this.DocumentsListLabel.TabIndex = 11;
-            this.DocumentsListLabel.Text = "...";
+            this.DocumentsListLabel.ReadOnly = true;
+            this.DocumentsListLabel.Size = new System.Drawing.Size(453, 100);
+            this.DocumentsListLabel.TabIndex = 12;
             // 
             // ServiceTimeDurationLabel
             // 
             this.ServiceTimeDurationLabel.AutoSize = true;
-            this.ServiceTimeDurationLabel.Location = new System.Drawing.Point(185, 94);
+            this.ServiceTimeDurationLabel.Location = new System.Drawing.Point(185, 114);
             this.ServiceTimeDurationLabel.Name = "ServiceTimeDurationLabel";
             this.ServiceTimeDurationLabel.Size = new System.Drawing.Size(16, 13);
             this.ServiceTimeDurationLabel.TabIndex = 10;
@@ -150,7 +167,7 @@
             // GovernmentStructureLabel
             // 
             this.GovernmentStructureLabel.AutoSize = true;
-            this.GovernmentStructureLabel.Location = new System.Drawing.Point(185, 71);
+            this.GovernmentStructureLabel.Location = new System.Drawing.Point(185, 91);
             this.GovernmentStructureLabel.Name = "GovernmentStructureLabel";
             this.GovernmentStructureLabel.Size = new System.Drawing.Size(16, 13);
             this.GovernmentStructureLabel.TabIndex = 9;
@@ -159,7 +176,7 @@
             // ServiceTitleLabel
             // 
             this.ServiceTitleLabel.AutoSize = true;
-            this.ServiceTitleLabel.Location = new System.Drawing.Point(185, 48);
+            this.ServiceTitleLabel.Location = new System.Drawing.Point(185, 68);
             this.ServiceTitleLabel.Name = "ServiceTitleLabel";
             this.ServiceTitleLabel.Size = new System.Drawing.Size(16, 13);
             this.ServiceTitleLabel.TabIndex = 8;
@@ -168,148 +185,237 @@
             // ServiceTypeLabel
             // 
             this.ServiceTypeLabel.AutoSize = true;
-            this.ServiceTypeLabel.Location = new System.Drawing.Point(185, 25);
+            this.ServiceTypeLabel.Location = new System.Drawing.Point(185, 45);
             this.ServiceTypeLabel.Name = "ServiceTypeLabel";
             this.ServiceTypeLabel.Size = new System.Drawing.Size(16, 13);
             this.ServiceTypeLabel.TabIndex = 7;
             this.ServiceTypeLabel.Text = "...";
             // 
-            // ServiceTimeDurationLabelLeft
+            // ServiceTimeDurationLiner
             // 
-            this.ServiceTimeDurationLabelLeft.AutoSize = true;
-            this.ServiceTimeDurationLabelLeft.Location = new System.Drawing.Point(5, 94);
-            this.ServiceTimeDurationLabelLeft.Name = "ServiceTimeDurationLabelLeft";
-            this.ServiceTimeDurationLabelLeft.Size = new System.Drawing.Size(122, 13);
-            this.ServiceTimeDurationLabelLeft.TabIndex = 6;
-            this.ServiceTimeDurationLabelLeft.Text = "Срок оказания услуги:";
+            this.ServiceTimeDurationLiner.AutoSize = true;
+            this.ServiceTimeDurationLiner.Location = new System.Drawing.Point(5, 114);
+            this.ServiceTimeDurationLiner.Name = "ServiceTimeDurationLiner";
+            this.ServiceTimeDurationLiner.Size = new System.Drawing.Size(149, 13);
+            this.ServiceTimeDurationLiner.TabIndex = 6;
+            this.ServiceTimeDurationLiner.Text = "Срок оказания услуги (дни):";
             // 
-            // GovernmentStructureLabelLeft
+            // GovernmentStructureLiner
             // 
-            this.GovernmentStructureLabelLeft.AutoSize = true;
-            this.GovernmentStructureLabelLeft.Location = new System.Drawing.Point(5, 71);
-            this.GovernmentStructureLabelLeft.Name = "GovernmentStructureLabelLeft";
-            this.GovernmentStructureLabelLeft.Size = new System.Drawing.Size(145, 13);
-            this.GovernmentStructureLabelLeft.TabIndex = 5;
-            this.GovernmentStructureLabelLeft.Text = "Ответственное ведомство:";
+            this.GovernmentStructureLiner.AutoSize = true;
+            this.GovernmentStructureLiner.Location = new System.Drawing.Point(5, 91);
+            this.GovernmentStructureLiner.Name = "GovernmentStructureLiner";
+            this.GovernmentStructureLiner.Size = new System.Drawing.Size(145, 13);
+            this.GovernmentStructureLiner.TabIndex = 5;
+            this.GovernmentStructureLiner.Text = "Ответственное ведомство:";
             // 
-            // DocumentsListLabelLeft
+            // DocumentsListLiner
             // 
-            this.DocumentsListLabelLeft.AutoSize = true;
-            this.DocumentsListLabelLeft.Location = new System.Drawing.Point(5, 117);
-            this.DocumentsListLabelLeft.Name = "DocumentsListLabelLeft";
-            this.DocumentsListLabelLeft.Size = new System.Drawing.Size(122, 13);
-            this.DocumentsListLabelLeft.TabIndex = 4;
-            this.DocumentsListLabelLeft.Text = "Перечень документов:";
+            this.DocumentsListLiner.AutoSize = true;
+            this.DocumentsListLiner.Location = new System.Drawing.Point(5, 137);
+            this.DocumentsListLiner.Name = "DocumentsListLiner";
+            this.DocumentsListLiner.Size = new System.Drawing.Size(122, 13);
+            this.DocumentsListLiner.TabIndex = 4;
+            this.DocumentsListLiner.Text = "Перечень документов:";
             // 
-            // ServiceTitleLabelLeft
+            // ServiceTitleLiner
             // 
-            this.ServiceTitleLabelLeft.AutoSize = true;
-            this.ServiceTitleLabelLeft.Location = new System.Drawing.Point(5, 48);
-            this.ServiceTitleLabelLeft.Name = "ServiceTitleLabelLeft";
-            this.ServiceTitleLabelLeft.Size = new System.Drawing.Size(122, 13);
-            this.ServiceTitleLabelLeft.TabIndex = 3;
-            this.ServiceTitleLabelLeft.Text = "Наименование услуги:";
+            this.ServiceTitleLiner.AutoSize = true;
+            this.ServiceTitleLiner.Location = new System.Drawing.Point(5, 68);
+            this.ServiceTitleLiner.Name = "ServiceTitleLiner";
+            this.ServiceTitleLiner.Size = new System.Drawing.Size(122, 13);
+            this.ServiceTitleLiner.TabIndex = 3;
+            this.ServiceTitleLiner.Text = "Наименование услуги:";
             // 
-            // ServiceTypeLabelLeft
+            // ServiceTypeLiner
             // 
-            this.ServiceTypeLabelLeft.AutoSize = true;
-            this.ServiceTypeLabelLeft.Location = new System.Drawing.Point(5, 25);
-            this.ServiceTypeLabelLeft.Name = "ServiceTypeLabelLeft";
-            this.ServiceTypeLabelLeft.Size = new System.Drawing.Size(99, 13);
-            this.ServiceTypeLabelLeft.TabIndex = 2;
-            this.ServiceTypeLabelLeft.Text = "Категория услуги:";
+            this.ServiceTypeLiner.AutoSize = true;
+            this.ServiceTypeLiner.Location = new System.Drawing.Point(5, 45);
+            this.ServiceTypeLiner.Name = "ServiceTypeLiner";
+            this.ServiceTypeLiner.Size = new System.Drawing.Size(99, 13);
+            this.ServiceTypeLiner.TabIndex = 2;
+            this.ServiceTypeLiner.Text = "Категория услуги:";
             // 
             // EditServiceButton
             // 
-            this.EditServiceButton.Location = new System.Drawing.Point(480, 471);
+            this.EditServiceButton.Location = new System.Drawing.Point(519, 469);
             this.EditServiceButton.Name = "EditServiceButton";
             this.EditServiceButton.Size = new System.Drawing.Size(120, 23);
             this.EditServiceButton.TabIndex = 1;
             this.EditServiceButton.Text = "Изменить";
             this.EditServiceButton.UseVisualStyleBackColor = true;
+            this.EditServiceButton.Click += new System.EventHandler(this.EditServiceButton_Click);
             // 
             // CreateAppointmentButton
             // 
-            this.CreateAppointmentButton.Location = new System.Drawing.Point(357, 471);
+            this.CreateAppointmentButton.Location = new System.Drawing.Point(396, 469);
             this.CreateAppointmentButton.Name = "CreateAppointmentButton";
             this.CreateAppointmentButton.Size = new System.Drawing.Size(120, 23);
             this.CreateAppointmentButton.TabIndex = 0;
             this.CreateAppointmentButton.Text = "Создать запись";
             this.CreateAppointmentButton.UseVisualStyleBackColor = true;
+            this.CreateAppointmentButton.Click += new System.EventHandler(this.CreateAppointmentButton_Click);
             // 
             // SearchServicesTextBox
             // 
             this.SearchServicesTextBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.SearchServicesTextBox.Location = new System.Drawing.Point(6, 7);
             this.SearchServicesTextBox.Name = "SearchServicesTextBox";
-            this.SearchServicesTextBox.Size = new System.Drawing.Size(229, 20);
+            this.SearchServicesTextBox.Size = new System.Drawing.Size(268, 20);
             this.SearchServicesTextBox.TabIndex = 2;
             // 
             // AddServiceButton
             // 
-            this.AddServiceButton.Location = new System.Drawing.Point(7, 478);
+            this.AddServiceButton.Location = new System.Drawing.Point(352, 6);
             this.AddServiceButton.Name = "AddServiceButton";
-            this.AddServiceButton.Size = new System.Drawing.Size(228, 23);
+            this.AddServiceButton.Size = new System.Drawing.Size(144, 23);
             this.AddServiceButton.TabIndex = 1;
             this.AddServiceButton.Text = "Добавить услугу";
             this.AddServiceButton.UseVisualStyleBackColor = true;
+            this.AddServiceButton.Click += new System.EventHandler(this.ButtonAddService_Click);
             // 
             // SearchServicesPanel
             // 
+            this.SearchServicesPanel.AutoScroll = true;
             this.SearchServicesPanel.BackColor = System.Drawing.SystemColors.Control;
             this.SearchServicesPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.SearchServicesPanel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.SearchServicesPanel.Location = new System.Drawing.Point(6, 33);
             this.SearchServicesPanel.Name = "SearchServicesPanel";
-            this.SearchServicesPanel.Size = new System.Drawing.Size(229, 438);
+            this.SearchServicesPanel.Size = new System.Drawing.Size(490, 471);
             this.SearchServicesPanel.TabIndex = 0;
             // 
             // AppointmentsPage
             // 
+            this.AppointmentsPage.Controls.Add(this.RefreshAppointmentsButton);
             this.AppointmentsPage.Controls.Add(this.AppointmentPropertiesPanel);
             this.AppointmentsPage.Controls.Add(this.SearchAppointmentsTextBox);
             this.AppointmentsPage.Controls.Add(this.SearchAppointmentsPanel);
             this.AppointmentsPage.Location = new System.Drawing.Point(4, 22);
             this.AppointmentsPage.Name = "AppointmentsPage";
             this.AppointmentsPage.Padding = new System.Windows.Forms.Padding(3);
-            this.AppointmentsPage.Size = new System.Drawing.Size(851, 510);
+            this.AppointmentsPage.Size = new System.Drawing.Size(1151, 510);
             this.AppointmentsPage.TabIndex = 1;
             this.AppointmentsPage.Text = "Записи";
             this.AppointmentsPage.UseVisualStyleBackColor = true;
+            // 
+            // RefreshAppointmentsButton
+            // 
+            this.RefreshAppointmentsButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.RefreshAppointmentsButton.Location = new System.Drawing.Point(430, 6);
+            this.RefreshAppointmentsButton.Name = "RefreshAppointmentsButton";
+            this.RefreshAppointmentsButton.Size = new System.Drawing.Size(66, 23);
+            this.RefreshAppointmentsButton.TabIndex = 7;
+            this.RefreshAppointmentsButton.Text = "Обновить";
+            this.RefreshAppointmentsButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.RefreshAppointmentsButton.UseVisualStyleBackColor = true;
+            this.RefreshAppointmentsButton.Click += new System.EventHandler(this.RefreshAppointments);
             // 
             // AppointmentPropertiesPanel
             // 
             this.AppointmentPropertiesPanel.BackColor = System.Drawing.SystemColors.Control;
             this.AppointmentPropertiesPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.AppointmentPropertiesPanel.Controls.Add(this.AppointmentDaytimeLabel);
-            this.AppointmentPropertiesPanel.Controls.Add(this.AppointmentDaytimeLabelLeft);
+            this.AppointmentPropertiesPanel.Controls.Add(this.AppointmentDaytimeLiner);
             this.AppointmentPropertiesPanel.Controls.Add(this.AppointmentDateLabel);
             this.AppointmentPropertiesPanel.Controls.Add(this.AppointmentNationalityLabel);
-            this.AppointmentPropertiesPanel.Controls.Add(this.AppointmentNationalityLabelLeft);
-            this.AppointmentPropertiesPanel.Controls.Add(this.AppointmentDateLabelLeft);
+            this.AppointmentPropertiesPanel.Controls.Add(this.AppointmentClientNationalityLiner);
+            this.AppointmentPropertiesPanel.Controls.Add(this.AppointmentDateLiner);
             this.AppointmentPropertiesPanel.Controls.Add(this.AppointmentClientPatronymicLabel);
-            this.AppointmentPropertiesPanel.Controls.Add(this.AppointmentClientPatronymicLabelLeft);
+            this.AppointmentPropertiesPanel.Controls.Add(this.AppointmentClientPatronymicLiner);
             this.AppointmentPropertiesPanel.Controls.Add(this.AppointmentClientNameLabel);
             this.AppointmentPropertiesPanel.Controls.Add(this.AppointmentClientSurnameLabel);
             this.AppointmentPropertiesPanel.Controls.Add(this.PassportNumberLabel);
             this.AppointmentPropertiesPanel.Controls.Add(this.PassportSeriesLabel);
             this.AppointmentPropertiesPanel.Controls.Add(this.AppointmentServiceTitleLabel);
-            this.AppointmentPropertiesPanel.Controls.Add(this.AppointmentClientSurnameLabelLeft);
-            this.AppointmentPropertiesPanel.Controls.Add(this.PassportNumberLabelLeft);
-            this.AppointmentPropertiesPanel.Controls.Add(this.AppointmentClientNameLabelLeft);
-            this.AppointmentPropertiesPanel.Controls.Add(this.PassportSeriesLabelLeft);
-            this.AppointmentPropertiesPanel.Controls.Add(this.AppointmentServiceTitleLabelLeft);
+            this.AppointmentPropertiesPanel.Controls.Add(this.AppointmentClientSurnameLiner);
+            this.AppointmentPropertiesPanel.Controls.Add(this.PassportNumberLiner);
+            this.AppointmentPropertiesPanel.Controls.Add(this.AppointmentClientNameLiner);
+            this.AppointmentPropertiesPanel.Controls.Add(this.PassportSeriesLiner);
+            this.AppointmentPropertiesPanel.Controls.Add(this.AppointmentServiceTitleLiner);
             this.AppointmentPropertiesPanel.Controls.Add(this.EditAppointmentButton);
             this.AppointmentPropertiesPanel.Controls.Add(this.DeleteAppointmentButton);
-            this.AppointmentPropertiesPanel.Location = new System.Drawing.Point(241, 7);
+            this.AppointmentPropertiesPanel.Location = new System.Drawing.Point(502, 7);
             this.AppointmentPropertiesPanel.Name = "AppointmentPropertiesPanel";
-            this.AppointmentPropertiesPanel.Size = new System.Drawing.Size(604, 497);
+            this.AppointmentPropertiesPanel.Size = new System.Drawing.Size(643, 497);
             this.AppointmentPropertiesPanel.TabIndex = 6;
+            // 
+            // AppointmentDaytimeLabel
+            // 
+            this.AppointmentDaytimeLabel.AutoSize = true;
+            this.AppointmentDaytimeLabel.Location = new System.Drawing.Point(185, 229);
+            this.AppointmentDaytimeLabel.Name = "AppointmentDaytimeLabel";
+            this.AppointmentDaytimeLabel.Size = new System.Drawing.Size(16, 13);
+            this.AppointmentDaytimeLabel.TabIndex = 19;
+            this.AppointmentDaytimeLabel.Text = "...";
+            // 
+            // AppointmentDaytimeLiner
+            // 
+            this.AppointmentDaytimeLiner.AutoSize = true;
+            this.AppointmentDaytimeLiner.Location = new System.Drawing.Point(5, 229);
+            this.AppointmentDaytimeLiner.Name = "AppointmentDaytimeLiner";
+            this.AppointmentDaytimeLiner.Size = new System.Drawing.Size(82, 13);
+            this.AppointmentDaytimeLiner.TabIndex = 18;
+            this.AppointmentDaytimeLiner.Text = "Время записи:";
+            // 
+            // AppointmentDateLabel
+            // 
+            this.AppointmentDateLabel.AutoSize = true;
+            this.AppointmentDateLabel.Location = new System.Drawing.Point(185, 206);
+            this.AppointmentDateLabel.Name = "AppointmentDateLabel";
+            this.AppointmentDateLabel.Size = new System.Drawing.Size(16, 13);
+            this.AppointmentDateLabel.TabIndex = 17;
+            this.AppointmentDateLabel.Text = "...";
+            // 
+            // AppointmentNationalityLabel
+            // 
+            this.AppointmentNationalityLabel.AutoSize = true;
+            this.AppointmentNationalityLabel.Location = new System.Drawing.Point(185, 183);
+            this.AppointmentNationalityLabel.Name = "AppointmentNationalityLabel";
+            this.AppointmentNationalityLabel.Size = new System.Drawing.Size(16, 13);
+            this.AppointmentNationalityLabel.TabIndex = 16;
+            this.AppointmentNationalityLabel.Text = "...";
+            // 
+            // AppointmentClientNationalityLiner
+            // 
+            this.AppointmentClientNationalityLiner.AutoSize = true;
+            this.AppointmentClientNationalityLiner.Location = new System.Drawing.Point(5, 183);
+            this.AppointmentClientNationalityLiner.Name = "AppointmentClientNationalityLiner";
+            this.AppointmentClientNationalityLiner.Size = new System.Drawing.Size(77, 13);
+            this.AppointmentClientNationalityLiner.TabIndex = 15;
+            this.AppointmentClientNationalityLiner.Text = "Гражданство:";
+            // 
+            // AppointmentDateLiner
+            // 
+            this.AppointmentDateLiner.AutoSize = true;
+            this.AppointmentDateLiner.Location = new System.Drawing.Point(5, 206);
+            this.AppointmentDateLiner.Name = "AppointmentDateLiner";
+            this.AppointmentDateLiner.Size = new System.Drawing.Size(75, 13);
+            this.AppointmentDateLiner.TabIndex = 14;
+            this.AppointmentDateLiner.Text = "Дата записи:";
+            // 
+            // AppointmentClientPatronymicLabel
+            // 
+            this.AppointmentClientPatronymicLabel.AutoSize = true;
+            this.AppointmentClientPatronymicLabel.Location = new System.Drawing.Point(185, 160);
+            this.AppointmentClientPatronymicLabel.Name = "AppointmentClientPatronymicLabel";
+            this.AppointmentClientPatronymicLabel.Size = new System.Drawing.Size(16, 13);
+            this.AppointmentClientPatronymicLabel.TabIndex = 13;
+            this.AppointmentClientPatronymicLabel.Text = "...";
+            // 
+            // AppointmentClientPatronymicLiner
+            // 
+            this.AppointmentClientPatronymicLiner.AutoSize = true;
+            this.AppointmentClientPatronymicLiner.Location = new System.Drawing.Point(5, 160);
+            this.AppointmentClientPatronymicLiner.Name = "AppointmentClientPatronymicLiner";
+            this.AppointmentClientPatronymicLiner.Size = new System.Drawing.Size(101, 13);
+            this.AppointmentClientPatronymicLiner.TabIndex = 12;
+            this.AppointmentClientPatronymicLiner.Text = "Отчество клиента:";
             // 
             // AppointmentClientNameLabel
             // 
             this.AppointmentClientNameLabel.AutoSize = true;
-            this.AppointmentClientNameLabel.Location = new System.Drawing.Point(185, 117);
+            this.AppointmentClientNameLabel.Location = new System.Drawing.Point(185, 137);
             this.AppointmentClientNameLabel.Name = "AppointmentClientNameLabel";
             this.AppointmentClientNameLabel.Size = new System.Drawing.Size(16, 13);
             this.AppointmentClientNameLabel.TabIndex = 11;
@@ -318,7 +424,7 @@
             // AppointmentClientSurnameLabel
             // 
             this.AppointmentClientSurnameLabel.AutoSize = true;
-            this.AppointmentClientSurnameLabel.Location = new System.Drawing.Point(185, 94);
+            this.AppointmentClientSurnameLabel.Location = new System.Drawing.Point(185, 114);
             this.AppointmentClientSurnameLabel.Name = "AppointmentClientSurnameLabel";
             this.AppointmentClientSurnameLabel.Size = new System.Drawing.Size(16, 13);
             this.AppointmentClientSurnameLabel.TabIndex = 10;
@@ -327,7 +433,7 @@
             // PassportNumberLabel
             // 
             this.PassportNumberLabel.AutoSize = true;
-            this.PassportNumberLabel.Location = new System.Drawing.Point(185, 71);
+            this.PassportNumberLabel.Location = new System.Drawing.Point(185, 91);
             this.PassportNumberLabel.Name = "PassportNumberLabel";
             this.PassportNumberLabel.Size = new System.Drawing.Size(16, 13);
             this.PassportNumberLabel.TabIndex = 9;
@@ -336,7 +442,7 @@
             // PassportSeriesLabel
             // 
             this.PassportSeriesLabel.AutoSize = true;
-            this.PassportSeriesLabel.Location = new System.Drawing.Point(185, 48);
+            this.PassportSeriesLabel.Location = new System.Drawing.Point(185, 68);
             this.PassportSeriesLabel.Name = "PassportSeriesLabel";
             this.PassportSeriesLabel.Size = new System.Drawing.Size(16, 13);
             this.PassportSeriesLabel.TabIndex = 8;
@@ -345,81 +451,83 @@
             // AppointmentServiceTitleLabel
             // 
             this.AppointmentServiceTitleLabel.AutoSize = true;
-            this.AppointmentServiceTitleLabel.Location = new System.Drawing.Point(185, 25);
+            this.AppointmentServiceTitleLabel.Location = new System.Drawing.Point(185, 45);
             this.AppointmentServiceTitleLabel.Name = "AppointmentServiceTitleLabel";
             this.AppointmentServiceTitleLabel.Size = new System.Drawing.Size(16, 13);
             this.AppointmentServiceTitleLabel.TabIndex = 7;
             this.AppointmentServiceTitleLabel.Text = "...";
             // 
-            // AppointmentClientSurnameLabelLeft
+            // AppointmentClientSurnameLiner
             // 
-            this.AppointmentClientSurnameLabelLeft.AutoSize = true;
-            this.AppointmentClientSurnameLabelLeft.Location = new System.Drawing.Point(5, 94);
-            this.AppointmentClientSurnameLabelLeft.Name = "AppointmentClientSurnameLabelLeft";
-            this.AppointmentClientSurnameLabelLeft.Size = new System.Drawing.Size(103, 13);
-            this.AppointmentClientSurnameLabelLeft.TabIndex = 6;
-            this.AppointmentClientSurnameLabelLeft.Text = "Фамилия клиента:";
+            this.AppointmentClientSurnameLiner.AutoSize = true;
+            this.AppointmentClientSurnameLiner.Location = new System.Drawing.Point(5, 114);
+            this.AppointmentClientSurnameLiner.Name = "AppointmentClientSurnameLiner";
+            this.AppointmentClientSurnameLiner.Size = new System.Drawing.Size(103, 13);
+            this.AppointmentClientSurnameLiner.TabIndex = 6;
+            this.AppointmentClientSurnameLiner.Text = "Фамилия клиента:";
             // 
-            // PassportNumberLabelLeft
+            // PassportNumberLiner
             // 
-            this.PassportNumberLabelLeft.AutoSize = true;
-            this.PassportNumberLabelLeft.Location = new System.Drawing.Point(5, 71);
-            this.PassportNumberLabelLeft.Name = "PassportNumberLabelLeft";
-            this.PassportNumberLabelLeft.Size = new System.Drawing.Size(94, 13);
-            this.PassportNumberLabelLeft.TabIndex = 5;
-            this.PassportNumberLabelLeft.Text = "Номер паспорта:";
+            this.PassportNumberLiner.AutoSize = true;
+            this.PassportNumberLiner.Location = new System.Drawing.Point(5, 91);
+            this.PassportNumberLiner.Name = "PassportNumberLiner";
+            this.PassportNumberLiner.Size = new System.Drawing.Size(94, 13);
+            this.PassportNumberLiner.TabIndex = 5;
+            this.PassportNumberLiner.Text = "Номер паспорта:";
             // 
-            // AppointmentClientNameLabelLeft
+            // AppointmentClientNameLiner
             // 
-            this.AppointmentClientNameLabelLeft.AutoSize = true;
-            this.AppointmentClientNameLabelLeft.Location = new System.Drawing.Point(5, 117);
-            this.AppointmentClientNameLabelLeft.Name = "AppointmentClientNameLabelLeft";
-            this.AppointmentClientNameLabelLeft.Size = new System.Drawing.Size(76, 13);
-            this.AppointmentClientNameLabelLeft.TabIndex = 4;
-            this.AppointmentClientNameLabelLeft.Text = "Имя клиента:";
+            this.AppointmentClientNameLiner.AutoSize = true;
+            this.AppointmentClientNameLiner.Location = new System.Drawing.Point(5, 137);
+            this.AppointmentClientNameLiner.Name = "AppointmentClientNameLiner";
+            this.AppointmentClientNameLiner.Size = new System.Drawing.Size(76, 13);
+            this.AppointmentClientNameLiner.TabIndex = 4;
+            this.AppointmentClientNameLiner.Text = "Имя клиента:";
             // 
-            // PassportSeriesLabelLeft
+            // PassportSeriesLiner
             // 
-            this.PassportSeriesLabelLeft.AutoSize = true;
-            this.PassportSeriesLabelLeft.Location = new System.Drawing.Point(5, 48);
-            this.PassportSeriesLabelLeft.Name = "PassportSeriesLabelLeft";
-            this.PassportSeriesLabelLeft.Size = new System.Drawing.Size(91, 13);
-            this.PassportSeriesLabelLeft.TabIndex = 3;
-            this.PassportSeriesLabelLeft.Text = "Серия паспорта:";
+            this.PassportSeriesLiner.AutoSize = true;
+            this.PassportSeriesLiner.Location = new System.Drawing.Point(5, 68);
+            this.PassportSeriesLiner.Name = "PassportSeriesLiner";
+            this.PassportSeriesLiner.Size = new System.Drawing.Size(91, 13);
+            this.PassportSeriesLiner.TabIndex = 3;
+            this.PassportSeriesLiner.Text = "Серия паспорта:";
             // 
-            // AppointmentServiceTitleLabelLeft
+            // AppointmentServiceTitleLiner
             // 
-            this.AppointmentServiceTitleLabelLeft.AutoSize = true;
-            this.AppointmentServiceTitleLabelLeft.Location = new System.Drawing.Point(5, 25);
-            this.AppointmentServiceTitleLabelLeft.Name = "AppointmentServiceTitleLabelLeft";
-            this.AppointmentServiceTitleLabelLeft.Size = new System.Drawing.Size(122, 13);
-            this.AppointmentServiceTitleLabelLeft.TabIndex = 2;
-            this.AppointmentServiceTitleLabelLeft.Text = "Наименование услуги:";
+            this.AppointmentServiceTitleLiner.AutoSize = true;
+            this.AppointmentServiceTitleLiner.Location = new System.Drawing.Point(5, 45);
+            this.AppointmentServiceTitleLiner.Name = "AppointmentServiceTitleLiner";
+            this.AppointmentServiceTitleLiner.Size = new System.Drawing.Size(122, 13);
+            this.AppointmentServiceTitleLiner.TabIndex = 2;
+            this.AppointmentServiceTitleLiner.Text = "Наименование услуги:";
             // 
             // EditAppointmentButton
             // 
-            this.EditAppointmentButton.Location = new System.Drawing.Point(459, 469);
+            this.EditAppointmentButton.Location = new System.Drawing.Point(498, 469);
             this.EditAppointmentButton.Name = "EditAppointmentButton";
             this.EditAppointmentButton.Size = new System.Drawing.Size(140, 23);
             this.EditAppointmentButton.TabIndex = 1;
             this.EditAppointmentButton.Text = "Изменить дату/время";
             this.EditAppointmentButton.UseVisualStyleBackColor = true;
+            this.EditAppointmentButton.Click += new System.EventHandler(this.EditAppointmentButton_Click);
             // 
             // DeleteAppointmentButton
             // 
-            this.DeleteAppointmentButton.Location = new System.Drawing.Point(316, 469);
+            this.DeleteAppointmentButton.Location = new System.Drawing.Point(355, 469);
             this.DeleteAppointmentButton.Name = "DeleteAppointmentButton";
             this.DeleteAppointmentButton.Size = new System.Drawing.Size(140, 23);
             this.DeleteAppointmentButton.TabIndex = 0;
             this.DeleteAppointmentButton.Text = "Удалить запись";
             this.DeleteAppointmentButton.UseVisualStyleBackColor = true;
+            this.DeleteAppointmentButton.Click += new System.EventHandler(this.DeleteAppointmentButton_Click);
             // 
             // SearchAppointmentsTextBox
             // 
             this.SearchAppointmentsTextBox.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.SearchAppointmentsTextBox.Location = new System.Drawing.Point(6, 7);
             this.SearchAppointmentsTextBox.Name = "SearchAppointmentsTextBox";
-            this.SearchAppointmentsTextBox.Size = new System.Drawing.Size(229, 20);
+            this.SearchAppointmentsTextBox.Size = new System.Drawing.Size(418, 20);
             this.SearchAppointmentsTextBox.TabIndex = 5;
             // 
             // SearchAppointmentsPanel
@@ -429,120 +537,62 @@
             this.SearchAppointmentsPanel.ForeColor = System.Drawing.SystemColors.ControlText;
             this.SearchAppointmentsPanel.Location = new System.Drawing.Point(6, 33);
             this.SearchAppointmentsPanel.Name = "SearchAppointmentsPanel";
-            this.SearchAppointmentsPanel.Size = new System.Drawing.Size(229, 471);
+            this.SearchAppointmentsPanel.Size = new System.Drawing.Size(490, 471);
             this.SearchAppointmentsPanel.TabIndex = 4;
             // 
             // ServedAppointmentsPage
             // 
+            this.ServedAppointmentsPage.Controls.Add(this.RefreshAppointmentsHistoryButton);
             this.ServedAppointmentsPage.Controls.Add(this.SearchAppointmentsHistoryPanel);
             this.ServedAppointmentsPage.Controls.Add(this.SearchAppointmentsHistoryTextBox);
             this.ServedAppointmentsPage.Location = new System.Drawing.Point(4, 22);
             this.ServedAppointmentsPage.Name = "ServedAppointmentsPage";
-            this.ServedAppointmentsPage.Size = new System.Drawing.Size(851, 510);
+            this.ServedAppointmentsPage.Size = new System.Drawing.Size(1151, 510);
             this.ServedAppointmentsPage.TabIndex = 2;
             this.ServedAppointmentsPage.Text = "История услуг";
             this.ServedAppointmentsPage.UseVisualStyleBackColor = true;
+            // 
+            // RefreshAppointmentsHistoryButton
+            // 
+            this.RefreshAppointmentsHistoryButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
+            this.RefreshAppointmentsHistoryButton.Location = new System.Drawing.Point(286, 7);
+            this.RefreshAppointmentsHistoryButton.Name = "RefreshAppointmentsHistoryButton";
+            this.RefreshAppointmentsHistoryButton.Size = new System.Drawing.Size(66, 23);
+            this.RefreshAppointmentsHistoryButton.TabIndex = 5;
+            this.RefreshAppointmentsHistoryButton.Text = "Обновить";
+            this.RefreshAppointmentsHistoryButton.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.RefreshAppointmentsHistoryButton.UseVisualStyleBackColor = true;
+            this.RefreshAppointmentsHistoryButton.Click += new System.EventHandler(this.RefreshAppointmentsHistory);
             // 
             // SearchAppointmentsHistoryPanel
             // 
             this.SearchAppointmentsHistoryPanel.Location = new System.Drawing.Point(3, 34);
             this.SearchAppointmentsHistoryPanel.Name = "SearchAppointmentsHistoryPanel";
-            this.SearchAppointmentsHistoryPanel.Size = new System.Drawing.Size(845, 473);
+            this.SearchAppointmentsHistoryPanel.Size = new System.Drawing.Size(1145, 473);
             this.SearchAppointmentsHistoryPanel.TabIndex = 1;
             // 
             // SearchAppointmentsHistoryTextBox
             // 
             this.SearchAppointmentsHistoryTextBox.Location = new System.Drawing.Point(3, 8);
             this.SearchAppointmentsHistoryTextBox.Name = "SearchAppointmentsHistoryTextBox";
-            this.SearchAppointmentsHistoryTextBox.Size = new System.Drawing.Size(254, 20);
+            this.SearchAppointmentsHistoryTextBox.Size = new System.Drawing.Size(277, 20);
             this.SearchAppointmentsHistoryTextBox.TabIndex = 0;
             // 
             // UpdateAppointmentsHistoryTimer
             // 
             this.UpdateAppointmentsHistoryTimer.Enabled = true;
             this.UpdateAppointmentsHistoryTimer.Interval = 60000;
-            // 
-            // AppointmentClientPatronymicLabel
-            // 
-            this.AppointmentClientPatronymicLabel.AutoSize = true;
-            this.AppointmentClientPatronymicLabel.Location = new System.Drawing.Point(185, 140);
-            this.AppointmentClientPatronymicLabel.Name = "AppointmentClientPatronymicLabel";
-            this.AppointmentClientPatronymicLabel.Size = new System.Drawing.Size(16, 13);
-            this.AppointmentClientPatronymicLabel.TabIndex = 13;
-            this.AppointmentClientPatronymicLabel.Text = "...";
-            // 
-            // AppointmentClientPatronymicLabelLeft
-            // 
-            this.AppointmentClientPatronymicLabelLeft.AutoSize = true;
-            this.AppointmentClientPatronymicLabelLeft.Location = new System.Drawing.Point(5, 140);
-            this.AppointmentClientPatronymicLabelLeft.Name = "AppointmentClientPatronymicLabelLeft";
-            this.AppointmentClientPatronymicLabelLeft.Size = new System.Drawing.Size(101, 13);
-            this.AppointmentClientPatronymicLabelLeft.TabIndex = 12;
-            this.AppointmentClientPatronymicLabelLeft.Text = "Отчество клиента:";
-            // 
-            // AppointmentDaytimeLabel
-            // 
-            this.AppointmentDaytimeLabel.AutoSize = true;
-            this.AppointmentDaytimeLabel.Location = new System.Drawing.Point(185, 209);
-            this.AppointmentDaytimeLabel.Name = "AppointmentDaytimeLabel";
-            this.AppointmentDaytimeLabel.Size = new System.Drawing.Size(16, 13);
-            this.AppointmentDaytimeLabel.TabIndex = 19;
-            this.AppointmentDaytimeLabel.Text = "...";
-            // 
-            // AppointmentDaytimeLabelLeft
-            // 
-            this.AppointmentDaytimeLabelLeft.AutoSize = true;
-            this.AppointmentDaytimeLabelLeft.Location = new System.Drawing.Point(5, 209);
-            this.AppointmentDaytimeLabelLeft.Name = "AppointmentDaytimeLabelLeft";
-            this.AppointmentDaytimeLabelLeft.Size = new System.Drawing.Size(82, 13);
-            this.AppointmentDaytimeLabelLeft.TabIndex = 18;
-            this.AppointmentDaytimeLabelLeft.Text = "Время записи:";
-            // 
-            // AppointmentDateLabel
-            // 
-            this.AppointmentDateLabel.AutoSize = true;
-            this.AppointmentDateLabel.Location = new System.Drawing.Point(185, 186);
-            this.AppointmentDateLabel.Name = "AppointmentDateLabel";
-            this.AppointmentDateLabel.Size = new System.Drawing.Size(16, 13);
-            this.AppointmentDateLabel.TabIndex = 17;
-            this.AppointmentDateLabel.Text = "...";
-            // 
-            // AppointmentNationalityLabel
-            // 
-            this.AppointmentNationalityLabel.AutoSize = true;
-            this.AppointmentNationalityLabel.Location = new System.Drawing.Point(185, 163);
-            this.AppointmentNationalityLabel.Name = "AppointmentNationalityLabel";
-            this.AppointmentNationalityLabel.Size = new System.Drawing.Size(16, 13);
-            this.AppointmentNationalityLabel.TabIndex = 16;
-            this.AppointmentNationalityLabel.Text = "...";
-            // 
-            // AppointmentNationalityLabelLeft
-            // 
-            this.AppointmentNationalityLabelLeft.AutoSize = true;
-            this.AppointmentNationalityLabelLeft.Location = new System.Drawing.Point(5, 163);
-            this.AppointmentNationalityLabelLeft.Name = "AppointmentNationalityLabelLeft";
-            this.AppointmentNationalityLabelLeft.Size = new System.Drawing.Size(77, 13);
-            this.AppointmentNationalityLabelLeft.TabIndex = 15;
-            this.AppointmentNationalityLabelLeft.Text = "Гражданство:";
-            // 
-            // AppointmentDateLabelLeft
-            // 
-            this.AppointmentDateLabelLeft.AutoSize = true;
-            this.AppointmentDateLabelLeft.Location = new System.Drawing.Point(5, 186);
-            this.AppointmentDateLabelLeft.Name = "AppointmentDateLabelLeft";
-            this.AppointmentDateLabelLeft.Size = new System.Drawing.Size(75, 13);
-            this.AppointmentDateLabelLeft.TabIndex = 14;
-            this.AppointmentDateLabelLeft.Text = "Дата записи:";
+            this.UpdateAppointmentsHistoryTimer.Tick += new System.EventHandler(this.AppointmentsExpirationController_Timer);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(884, 561);
+            this.ClientSize = new System.Drawing.Size(1184, 561);
             this.Controls.Add(this.MainFormTabControl);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(900, 600);
-            this.MinimumSize = new System.Drawing.Size(900, 600);
+            this.MaximumSize = new System.Drawing.Size(1200, 600);
+            this.MinimumSize = new System.Drawing.Size(1200, 600);
             this.Name = "MainForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Информационная система МФЦ";
@@ -574,27 +624,26 @@
         private System.Windows.Forms.Timer UpdateAppointmentsHistoryTimer;
         private System.Windows.Forms.Button EditServiceButton;
         private System.Windows.Forms.Button CreateAppointmentButton;
-        private System.Windows.Forms.Label ServiceTypeLabelLeft;
-        private System.Windows.Forms.Label DocumentsListLabelLeft;
-        private System.Windows.Forms.Label ServiceTitleLabelLeft;
-        private System.Windows.Forms.Label GovernmentStructureLabelLeft;
-        private System.Windows.Forms.Label ServiceTimeDurationLabelLeft;
-        private System.Windows.Forms.Label DocumentsListLabel;
+        private System.Windows.Forms.Label ServiceTypeLiner;
+        private System.Windows.Forms.Label DocumentsListLiner;
+        private System.Windows.Forms.Label ServiceTitleLiner;
+        private System.Windows.Forms.Label GovernmentStructureLiner;
+        private System.Windows.Forms.Label ServiceTimeDurationLiner;
         private System.Windows.Forms.Label ServiceTimeDurationLabel;
         private System.Windows.Forms.Label GovernmentStructureLabel;
         private System.Windows.Forms.Label ServiceTitleLabel;
-        private System.Windows.Forms.Label ServiceTypeLabel;
+        private System.Windows.Forms.Label ServiceTypeLabel;         
         private System.Windows.Forms.Panel AppointmentPropertiesPanel;
         private System.Windows.Forms.Label AppointmentClientNameLabel;
         private System.Windows.Forms.Label AppointmentClientSurnameLabel;
         private System.Windows.Forms.Label PassportNumberLabel;
         private System.Windows.Forms.Label PassportSeriesLabel;
         private System.Windows.Forms.Label AppointmentServiceTitleLabel;
-        private System.Windows.Forms.Label AppointmentClientSurnameLabelLeft;
-        private System.Windows.Forms.Label PassportNumberLabelLeft;
-        private System.Windows.Forms.Label AppointmentClientNameLabelLeft;
-        private System.Windows.Forms.Label PassportSeriesLabelLeft;
-        private System.Windows.Forms.Label AppointmentServiceTitleLabelLeft;
+        private System.Windows.Forms.Label AppointmentClientSurnameLiner;
+        private System.Windows.Forms.Label PassportNumberLiner;
+        private System.Windows.Forms.Label AppointmentClientNameLiner;
+        private System.Windows.Forms.Label PassportSeriesLiner;
+        private System.Windows.Forms.Label AppointmentServiceTitleLiner;
         private System.Windows.Forms.Button EditAppointmentButton;
         private System.Windows.Forms.Button DeleteAppointmentButton;
         private System.Windows.Forms.TextBox SearchAppointmentsTextBox;
@@ -602,13 +651,17 @@
         private System.Windows.Forms.Panel SearchAppointmentsHistoryPanel;
         private System.Windows.Forms.TextBox SearchAppointmentsHistoryTextBox;
         private System.Windows.Forms.Label AppointmentClientPatronymicLabel;
-        private System.Windows.Forms.Label AppointmentClientPatronymicLabelLeft;
+        private System.Windows.Forms.Label AppointmentClientPatronymicLiner;
         private System.Windows.Forms.Label AppointmentDaytimeLabel;
-        private System.Windows.Forms.Label AppointmentDaytimeLabelLeft;
+        private System.Windows.Forms.Label AppointmentDaytimeLiner;
         private System.Windows.Forms.Label AppointmentDateLabel;
         private System.Windows.Forms.Label AppointmentNationalityLabel;
-        private System.Windows.Forms.Label AppointmentNationalityLabelLeft;
-        private System.Windows.Forms.Label AppointmentDateLabelLeft;
+        private System.Windows.Forms.Label AppointmentClientNationalityLiner;
+        private System.Windows.Forms.Label AppointmentDateLiner;
+        private System.Windows.Forms.TextBox DocumentsListLabel;
+        private System.Windows.Forms.Button RefreshServicesButton;
+        private System.Windows.Forms.Button RefreshAppointmentsButton;
+        private System.Windows.Forms.Button RefreshAppointmentsHistoryButton;
     }
 }
 
